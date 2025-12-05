@@ -25,7 +25,7 @@ export const restaurantInfo = {
     { day: "Mercredi", hours: "Fermé", open: false },
     { day: "Jeudi", hours: "Fermé", open: false },
     { day: "Vendredi", hours: "12:00–14:00, 19:00–21:00", open: true },
-    { day: "Samedi", hours: "12:00–14:00, 19:00–21:00", open: true },
+    { day: "Samedi", hours: "12:00–14:00, 19:00–22:00", open: true },
     { day: "Dimanche", hours: "12:00–14:00, 19:00–21:00", open: true },
   ],
 
