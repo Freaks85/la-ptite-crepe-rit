@@ -17,7 +17,7 @@ export const restaurantInfo = {
     link: "+33240644936",
   },
 
-  email: "bonjour@laptitecreperit.fr",
+  email: "lapetitcreperit44210@gmail.com",
 
   hours: [
     { day: "Lundi", hours: "12:00–14:00, 19:00–21:00", open: true },
@@ -31,7 +31,7 @@ export const restaurantInfo = {
 
   social: {
     facebook: "#",
-    instagram: "#",
+    instagram: "https://www.instagram.com/laptitecreperit/?hl=fr",
   },
 };
 

@@ -27,7 +27,7 @@ const About = () => {
   ];
 
   return (
-    <Section id="a-propos" bgColor="bg-cream">
+    <Section id="a-propos" bgColor="bg-cream" className="!pb-24" waveColor="fill-cream-warm">
       {/* Section Title */}
       <div
         ref={titleRef}
@@ -35,9 +35,13 @@ const About = () => {
       >
         <h2 className="section-title">Notre Crêperie</h2>
         <div className="flex items-center justify-center gap-3 mt-4">
-          <div className="w-16 h-0.5 bg-sage" />
+          <svg viewBox="0 0 120 20" className="w-24 h-5 text-sage" preserveAspectRatio="none">
+            <path d="M0,10 Q30,0 60,10 Q90,20 120,10" fill="none" stroke="currentColor" strokeWidth="2" />
+          </svg>
           <Leaf className="w-5 h-5 text-sage" />
-          <div className="w-16 h-0.5 bg-sage" />
+          <svg viewBox="0 0 120 20" className="w-24 h-5 text-sage" preserveAspectRatio="none">
+            <path d="M0,10 Q30,0 60,10 Q90,20 120,10" fill="none" stroke="currentColor" strokeWidth="2" />
+          </svg>
         </div>
       </div>
 
@@ -86,7 +90,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Image Column - Real photo */}
+        {/* Image Column - Photos grid */}
         <div
           ref={imageRef}
           className={`order-1 lg:order-2 reveal-right ${imageVisible ? 'revealed' : ''}`}
@@ -95,14 +99,22 @@ const About = () => {
             {/* Main image */}
             <div className="aspect-[4/3] rounded-2xl shadow-2xl overflow-hidden">
               <img
-                src="/team.jpg"
-                alt="L'équipe de La P'tite Crêpe Rit à Pornic"
+                src="/salle-pierre.jpg"
+                alt="Salle aux pierres apparentes de La P'tite Crêpe Rit"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Secondary image overlay */}
+            <div className="absolute -bottom-8 -right-8 w-40 h-40 md:w-48 md:h-48 rounded-xl shadow-xl overflow-hidden border-4 border-cream hidden sm:block">
+              <img
+                src="/salle-verte.jpg"
+                alt="Salle végétale de La P'tite Crêpe Rit"
                 className="w-full h-full object-cover"
               />
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-sage/20 rounded-full -z-10" />
             <div className="absolute -top-4 -left-4 w-16 h-16 bg-wood/10 rounded-full -z-10" />
 
             {/* Floating badge */}
@@ -140,6 +152,7 @@ const About = () => {
           </div>
         ))}
       </div>
+
     </Section>
   );
 };

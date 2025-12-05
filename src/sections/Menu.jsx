@@ -503,7 +503,7 @@ const Menu = () => {
       >
         <div className="relative">
           <img
-            src="/crepe.jpg"
+            src="/crepe-sucree.jpg"
             alt="Crêpe gourmande de La P'tite Crêpe Rit"
             className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full shadow-2xl"
           />

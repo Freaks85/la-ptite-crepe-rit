@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar, Footer } from './sections';
-import { HomePage, MenuPage, ReservationPage, GiftCardPage } from './pages';
+import { HomePage, MenuPage, ContactPage } from './pages';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -13,8 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/carte" element={<MenuPage />} />
-            <Route path="/reservation" element={<ReservationPage />} />
-            <Route path="/cheque-cadeau" element={<GiftCardPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
         <Footer />

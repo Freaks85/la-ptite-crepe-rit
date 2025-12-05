@@ -187,9 +187,13 @@ const Reservation = () => {
               </div>
             </div>
 
-            {/* Map placeholder */}
-            <div className="mt-8 bg-cream/10 rounded-xl h-32 flex items-center justify-center">
-              <p className="text-cream/60 text-sm">Carte interactive</p>
+            {/* Image du restaurant */}
+            <div className="mt-8 rounded-xl overflow-hidden h-40">
+              <img
+                src="/salle-complete.jpg"
+                alt="L'intérieur du restaurant"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

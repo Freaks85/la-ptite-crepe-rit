@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Phone } from 'lucide-react';
+import { restaurantInfo } from '../config/restaurant';
 
 const Hero = () => {
   return (
@@ -11,7 +12,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/restaurant.jpg')`,
+          backgroundImage: `url('/hero-bg.jpg')`,
         }}
       />
 
@@ -47,18 +48,38 @@ const Hero = () => {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            to="/reservation"
-            className="inline-flex items-center justify-center text-lg px-8 py-4 bg-sage text-white rounded-lg font-medium hover:bg-sage-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 btn-enter stagger-4"
+        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+          <a
+            href={`tel:${restaurantInfo.phone.link}`}
+            className="group relative inline-flex items-center justify-center gap-3 text-lg px-10 py-5 overflow-hidden rounded-full font-medium transition-all duration-500 btn-enter stagger-4"
           >
-            Réserver une table
-          </Link>
+            {/* Fond dégradé sage premium */}
+            <div className="absolute inset-0 bg-gradient-to-r from-sage-dark via-sage to-sage-light transition-all duration-500 group-hover:from-sage group-hover:via-sage-light group-hover:to-sage" />
+            {/* Effet brillant au survol */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            {/* Bordure subtile */}
+            <div className="absolute inset-0 rounded-full ring-1 ring-white/20 ring-inset" />
+            {/* Ombre chaude */}
+            <div className="absolute inset-0 rounded-full shadow-lg shadow-sage/40 group-hover:shadow-xl group-hover:shadow-sage/50 transition-shadow duration-300" />
+            {/* Contenu */}
+            <Phone className="relative z-10 w-5 h-5 text-white" />
+            <span className="relative z-10 text-white font-semibold tracking-wide">Réserver par téléphone</span>
+          </a>
+
           <Link
             to="/carte"
-            className="inline-flex items-center justify-center text-lg px-8 py-4 bg-wood text-white rounded-lg font-medium hover:bg-wood-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 btn-enter stagger-5"
+            className="group relative inline-flex items-center justify-center gap-2 text-lg px-10 py-5 overflow-hidden rounded-full font-medium transition-all duration-500 btn-enter stagger-5"
           >
-            Voir la carte
+            {/* Fond crème élégant */}
+            <div className="absolute inset-0 bg-gradient-to-r from-cream-light via-cream to-cream-warm transition-all duration-500" />
+            {/* Effet brillant au survol */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            {/* Bordure subtile */}
+            <div className="absolute inset-0 rounded-full ring-1 ring-wood/20 ring-inset group-hover:ring-sage/40 transition-all duration-300" />
+            {/* Ombre élégante */}
+            <div className="absolute inset-0 rounded-full shadow-lg shadow-wood/20 group-hover:shadow-xl group-hover:shadow-wood/30 transition-shadow duration-300" />
+            {/* Contenu */}
+            <span className="relative z-10 text-wood-dark font-semibold tracking-wide group-hover:text-sage-dark transition-colors duration-300">Découvrir la carte</span>
           </Link>
         </div>
       </div>
@@ -69,8 +90,8 @@ const Hero = () => {
       </div>
 
       {/* Decorative wave bottom border */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" className="w-full h-auto fill-cream" preserveAspectRatio="none">
+      <div className="absolute -bottom-px left-0 right-0">
+        <svg viewBox="0 0 1440 60" className="w-full h-auto fill-cream block" preserveAspectRatio="none">
           <path d="M0,60 L0,30 Q360,0 720,30 Q1080,60 1440,30 L1440,60 Z" />
         </svg>
       </div>

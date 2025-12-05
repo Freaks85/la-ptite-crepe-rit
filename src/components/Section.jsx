@@ -8,6 +8,7 @@ const Section = ({
   withTexture = false,
   centered = false,
   animate = true,
+  waveColor = null,
 }) => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +40,7 @@ const Section = ({
       id={id}
       ref={sectionRef}
       className={`
-        relative py-16 md:py-24 px-4 md:px-8 overflow-hidden
+        relative py-16 md:py-24 px-4 md:px-8
         ${bgColor}
         ${withTexture ? 'bg-kraft-texture' : ''}
         ${className}
@@ -87,6 +88,15 @@ const Section = ({
       >
         {children}
       </div>
+
+      {/* Wave divider bottom */}
+      {waveColor && (
+        <div className="absolute -bottom-px left-0 right-0 z-20">
+          <svg viewBox="0 0 1440 60" className={`w-full h-auto ${waveColor} block`} preserveAspectRatio="none">
+            <path d="M0,60 L0,30 Q360,0 720,30 Q1080,60 1440,30 L1440,60 Z" />
+          </svg>
+        </div>
+      )}
     </section>
   );
 };

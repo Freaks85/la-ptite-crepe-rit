@@ -147,6 +147,15 @@ const GiftCard = () => {
               <p className="text-sm text-wood/70">Valable 1 an</p>
             </div>
           </div>
+
+          {/* Image décorative */}
+          <div className="mt-8 rounded-2xl overflow-hidden shadow-lg hidden lg:block">
+            <img
+              src="/enseigne-neon.jpg"
+              alt="Enseigne La P'tite Crêpe Rit"
+              className="w-full h-48 object-cover"
+            />
+          </div>
         </div>
 
         {/* Right - Order Form */}

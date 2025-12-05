@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(copy \"C:\\Users\\Freaks\\Pictures\\Babou\\WhatsApp Image 2025-12-05 à 16.44.10_ac742c73.jpg\" \"c:\\Users\\Freaks\\Documents\\Site babou\\la-ptite-crepe-rit\\public\\hero-bg.jpg\")",
+      "Bash(copy:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

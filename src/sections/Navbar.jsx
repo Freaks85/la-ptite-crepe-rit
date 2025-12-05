@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Instagram } from 'lucide-react';
 import { restaurantInfo } from '../config/restaurant';
 
 const Navbar = () => {
@@ -25,8 +25,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Accueil', path: '/' },
     { name: 'La Carte', path: '/carte' },
-    { name: 'Réservation', path: '/reservation' },
-    { name: 'Chèque Cadeau', path: '/cheque-cadeau' },
+    { name: 'Chèque Cadeau', path: '/contact' },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -40,8 +39,8 @@ const Navbar = () => {
         fixed top-0 left-0 right-0 z-50
         transition-all duration-500
         ${showTransparent
-          ? 'bg-gradient-to-b from-wood-dark/50 to-transparent py-4'
-          : 'bg-cream-light/98 backdrop-blur-md shadow-lg py-2'
+          ? 'bg-transparent py-4'
+          : 'bg-cream shadow-md py-2'
         }
       `}
     >
@@ -106,8 +105,24 @@ const Navbar = () => {
               `}
             >
               <Phone size={16} />
-              <span className="hidden xl:inline">{restaurantInfo.phone.display}</span>
-              <span className="xl:hidden">Appeler</span>
+              <span>{restaurantInfo.phone.display}</span>
+            </a>
+
+            {/* Instagram Button */}
+            <a
+              href={restaurantInfo.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`
+                ml-2 flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300
+                ${showTransparent
+                  ? 'bg-cream-light/90 text-wood-dark hover:bg-cream-light shadow-lg'
+                  : 'bg-sage text-white hover:bg-sage-dark shadow-md hover:shadow-lg'
+                }
+              `}
+              aria-label="Instagram"
+            >
+              <Instagram size={18} />
             </a>
           </div>
 
@@ -151,14 +166,25 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* Phone Button Mobile */}
-            <a
-              href={`tel:${restaurantInfo.phone.link}`}
-              className="flex items-center justify-center gap-2 bg-sage text-white py-3 px-4 rounded-xl font-medium mt-4 hover:bg-sage-dark transition-colors"
-            >
-              <Phone size={18} />
-              <span>{restaurantInfo.phone.display}</span>
-            </a>
+            {/* Phone & Instagram Mobile */}
+            <div className="flex gap-2 mt-4">
+              <a
+                href={`tel:${restaurantInfo.phone.link}`}
+                className="flex-1 flex items-center justify-center gap-2 bg-sage text-white py-3 px-4 rounded-xl font-medium hover:bg-sage-dark transition-colors"
+              >
+                <Phone size={18} />
+                <span>{restaurantInfo.phone.display}</span>
+              </a>
+              <a
+                href={restaurantInfo.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 bg-sage text-white rounded-xl hover:bg-sage-dark transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
