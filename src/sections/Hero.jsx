@@ -77,46 +77,24 @@ const Hero = () => {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-5 justify-center">
-          <div className="relative inline-flex flex-col items-center">
-            <a
-              href={`tel:${restaurantInfo.phone.link}`}
-              onClick={handleCallClick}
-              className="group relative inline-flex items-center justify-center gap-3 text-lg px-10 py-5 overflow-hidden rounded-full font-medium transition-all duration-500 btn-enter stagger-4"
-            >
-              {/* Fond dégradé sage premium */}
-              <div className="absolute inset-0 bg-gradient-to-r from-sage-dark via-sage to-sage-light transition-all duration-500 group-hover:from-sage group-hover:via-sage-light group-hover:to-sage" />
-              {/* Effet brillant au survol */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              {/* Bordure subtile */}
-              <div className="absolute inset-0 rounded-full ring-1 ring-white/20 ring-inset" />
-              {/* Ombre chaude */}
-              <div className="absolute inset-0 rounded-full shadow-lg shadow-sage/40 group-hover:shadow-xl group-hover:shadow-sage/50 transition-shadow duration-300" />
-              {/* Contenu */}
-              <Phone className="relative z-10 w-5 h-5 text-white" />
-              <span className="relative z-10 text-white font-semibold tracking-wide">Réserver par téléphone</span>
-            </a>
-
-            {showCallInfo && (
-              <div
-                ref={popupRef}
-                className="fixed md:absolute top-1/2 md:top-auto md:bottom-full left-1/2 -translate-x-1/2 -translate-y-1/2 md:translate-y-0 md:mb-3 w-[90vw] max-w-sm md:w-72 bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-5 text-center animate-fade-in-down z-[100] cursor-pointer"
-                onClick={() => setShowCallInfo(false)}
-              >
-                <p className="leading-relaxed text-base">
-                  Les réservations par téléphone sont prises de 10h à 12h et de 18h à 19h.
-                </p>
-                <a
-                  href={`tel:${restaurantInfo.phone.link}`}
-                  className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-4 transition-colors text-base"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>Appeler maintenant</span>
-                </a>
-              </div>
-            )}
-          </div>
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+          <a
+            href={`tel:${restaurantInfo.phone.link}`}
+            onClick={handleCallClick}
+            className="group relative inline-flex items-center justify-center gap-3 text-lg px-10 py-5 overflow-hidden rounded-full font-medium transition-all duration-500 btn-enter stagger-4"
+          >
+            {/* Fond dégradé sage premium */}
+            <div className="absolute inset-0 bg-gradient-to-r from-sage-dark via-sage to-sage-light transition-all duration-500 group-hover:from-sage group-hover:via-sage-light group-hover:to-sage" />
+            {/* Effet brillant au survol */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            {/* Bordure subtile */}
+            <div className="absolute inset-0 rounded-full ring-1 ring-white/20 ring-inset" />
+            {/* Ombre chaude */}
+            <div className="absolute inset-0 rounded-full shadow-lg shadow-sage/40 group-hover:shadow-xl group-hover:shadow-sage/50 transition-shadow duration-300" />
+            {/* Contenu */}
+            <Phone className="relative z-10 w-5 h-5 text-white" />
+            <span className="relative z-10 text-white font-semibold tracking-wide">Réserver par téléphone</span>
+          </a>
 
           <Link
             to="/carte"
@@ -134,6 +112,27 @@ const Hero = () => {
             <span className="relative z-10 text-wood-dark font-semibold tracking-wide group-hover:text-sage-dark transition-colors duration-300">Découvrir la carte</span>
           </Link>
         </div>
+
+        {/* Popup téléphone */}
+        {showCallInfo && (
+          <div
+            ref={popupRef}
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-md bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-5 text-center z-[9999] cursor-pointer"
+            onClick={() => setShowCallInfo(false)}
+          >
+            <p className="leading-relaxed text-base">
+              Les réservations par téléphone sont prises de 10h à 12h et de 18h à 19h.
+            </p>
+            <a
+              href={`tel:${restaurantInfo.phone.link}`}
+              className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-4 transition-colors text-base"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Phone className="w-5 h-5" />
+              <span>Appeler maintenant</span>
+            </a>
+          </div>
+        )}
       </div>
 
       {/* Scroll indicator */}
