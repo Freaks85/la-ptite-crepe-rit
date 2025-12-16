@@ -51,13 +51,8 @@ const Navbar = () => {
   ];
 
   const handleCallClick = (e) => {
-    // Sur mobile, on laisse le téléphone s'ouvrir directement
-    // Sur desktop, on affiche la popup d'info
-    if (window.innerWidth >= 1024) {
-      e.preventDefault();
-      setShowCallInfo(true);
-    }
-    // Sinon on laisse le comportement par défaut (appel téléphonique)
+    e.preventDefault();
+    setShowCallInfo(true);
   };
 
   const isActive = (path) => location.pathname === path;

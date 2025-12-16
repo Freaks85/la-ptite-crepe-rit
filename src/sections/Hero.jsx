@@ -28,13 +28,8 @@ const Hero = () => {
   }, [showCallInfo]);
 
   const handleCallClick = (e) => {
-    // Sur mobile, on laisse le téléphone s'ouvrir directement
-    // Sur desktop, on affiche la popup d'info
-    if (window.innerWidth >= 768) {
-      e.preventDefault();
-      setShowCallInfo(true);
-    }
-    // Sinon on laisse le comportement par défaut (appel téléphonique)
+    e.preventDefault();
+    setShowCallInfo(true);
   };
 
   return (
