@@ -140,18 +140,18 @@ const Navbar = () => {
               {showCallInfo && (
                 <div
                   ref={popupRef}
-                  className="absolute top-full mt-3 right-0 w-72 bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-4 text-left animate-fade-in-up z-50 cursor-pointer"
+                  className="fixed lg:absolute top-1/2 lg:top-full left-1/2 lg:left-auto lg:right-0 -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 lg:translate-y-0 lg:mt-3 w-[90vw] max-w-sm lg:w-72 bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-5 text-center lg:text-left animate-fade-in-up z-[60] cursor-pointer"
                   onClick={() => setShowCallInfo(false)}
                 >
-                  <p className="leading-relaxed">
+                  <p className="leading-relaxed text-base">
                     Les réservations par téléphone sont prises de 10h à 12h et de 18h à 19h.
                   </p>
                   <a
                     href={`tel:${restaurantInfo.phone.link}`}
-                    className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-3 transition-colors"
+                    className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-4 transition-colors text-base"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-5 h-5" />
                     <span>Appeler maintenant</span>
                   </a>
                 </div>
@@ -240,18 +240,18 @@ const Navbar = () => {
 
               {showCallInfo && (
                 <div
-                  className="bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-xl border border-sage/40 p-4 text-left animate-fade-in-up cursor-pointer"
+                  className="bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-xl border border-sage/40 p-5 text-center animate-fade-in-up cursor-pointer"
                   onClick={() => setShowCallInfo(false)}
                 >
-                  <p className="leading-relaxed">
+                  <p className="leading-relaxed text-base">
                     Les réservations par téléphone sont prises de 10h à 12h et de 18h à 19h.
                   </p>
                   <a
                     href={`tel:${restaurantInfo.phone.link}`}
-                    className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-3 transition-colors"
+                    className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-4 transition-colors text-base"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-5 h-5" />
                     <span>Appeler maintenant</span>
                   </a>
                 </div>

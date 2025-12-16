@@ -176,7 +176,7 @@ const Menu = () => {
         {
           name: 'Boissons Chaudes',
           items: [
-            { name: 'Café Bio Breton', desc: 'Torréfaction artisanale 100% arabica', price: '1,90€' },
+            { name: 'Café Bio', desc: 'Torréfaction artisanale 100% arabica', price: '1,90€' },
             { name: 'Petit crème', price: '2,50€' },
             { name: 'Grand crème', price: '2,80€' },
             { name: 'Capuccino', price: '4,50€' },

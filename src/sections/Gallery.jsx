@@ -11,7 +11,7 @@ const Gallery = () => {
     { src: '/salle-longue.jpg', alt: 'Salle avec banquette verte', size: 'medium' },
     { src: '/crepe-sucree.jpg', alt: 'Crêpe sucrée au caramel', size: 'medium' },
     { src: '/bar.jpg', alt: 'Notre bar', size: 'medium' },
-    { src: '/galette.jpg', alt: 'Galette bretonne', size: 'medium' },
+    { src: '/galette.jpg', alt: 'Galette au sarrasin', size: 'medium' },
     { src: '/enseigne-neon.jpg', alt: 'Enseigne La P\'tite Crêpe Rit', size: 'large' },
     { src: '/salle-complete.jpg', alt: 'Vue d\'ensemble du restaurant', size: 'medium' },
     { src: '/table-intime.jpg', alt: 'Table intimiste', size: 'medium' },

@@ -11,7 +11,7 @@ const Testimonials = () => {
       name: 'Sophie Martin',
       date: 'Il y a 2 semaines',
       rating: 5,
-      text: 'Une crêperie authentique avec des produits de qualité ! Les galettes au sarrasin sont délicieuses et l\'accueil est très chaleureux. Le cadre avec les pierres apparentes donne vraiment une ambiance bretonne. Je recommande vivement la galette complète et la crêpe Babou !',
+      text: 'Une crêperie authentique avec des produits de qualité ! Les galettes au sarrasin sont délicieuses et l\'accueil est très chaleureux. Le cadre avec les pierres apparentes est magnifique. Je recommande vivement la galette complète et la crêpe Babou !',
       avatar: 'SM'
     },
     {
@@ -46,7 +46,7 @@ const Testimonials = () => {
       name: 'Laurent Bernard',
       date: 'Il y a 2 mois',
       rating: 5,
-      text: 'Ambiance chaleureuse et authentique, exactement ce qu\'on recherche dans une crêperie bretonne ! Les pancakes à l\'anglaise sont originaux et délicieux. Le petit plus : les glaces artisanales en dessert. Parfait pour un déjeuner en famille !',
+      text: 'Ambiance chaleureuse et authentique, exactement ce qu\'on recherche dans une bonne crêperie ! Les pancakes à l\'anglaise sont originaux et délicieux. Le petit plus : les glaces artisanales en dessert. Parfait pour un déjeuner en famille !',
       avatar: 'LB'
     }
   ];

@@ -41,7 +41,7 @@ const Reservation = () => {
       >
         <h2 className="section-title">Réservez votre table</h2>
         <p className="section-subtitle mt-4">
-          Garantissez votre place pour un moment gourmand en Bretagne
+          Garantissez votre place pour un moment gourmand à Pornic
         </p>
         <div className="flex items-center justify-center gap-3 mt-6">
           <div className="w-16 h-0.5 bg-sage" />

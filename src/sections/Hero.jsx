@@ -67,12 +67,12 @@ const Hero = () => {
 
         {/* Slogan */}
         <p className="text-xl sm:text-2xl md:text-3xl text-cream-warm font-display mb-6 text-shadow text-enter stagger-2">
-          Le goût de la Bretagne dans votre assiette
+          L'authenticité dans votre assiette
         </p>
 
         {/* Subtitle */}
         <p className="text-cream/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light text-enter stagger-3">
-          Crêpes artisanales, galettes au sarrasin et cidre breton
+          Crêperie artisanale à Pornic - Galettes au sarrasin et crêpes gourmandes
           dans une ambiance chaleureuse et conviviale
         </p>
 
@@ -100,18 +100,18 @@ const Hero = () => {
             {showCallInfo && (
               <div
                 ref={popupRef}
-                className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-72 bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-4 text-center animate-fade-in-down z-[100] cursor-pointer"
+                className="fixed md:absolute top-1/2 md:top-auto md:bottom-full left-1/2 -translate-x-1/2 -translate-y-1/2 md:translate-y-0 md:mb-3 w-[90vw] max-w-sm md:w-72 bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-5 text-center animate-fade-in-down z-[100] cursor-pointer"
                 onClick={() => setShowCallInfo(false)}
               >
-                <p className="leading-relaxed">
+                <p className="leading-relaxed text-base">
                   Les réservations par téléphone sont prises de 10h à 12h et de 18h à 19h.
                 </p>
                 <a
                   href={`tel:${restaurantInfo.phone.link}`}
-                  className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-3 transition-colors"
+                  className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-4 transition-colors text-base"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-5 h-5" />
                   <span>Appeler maintenant</span>
                 </a>
               </div>

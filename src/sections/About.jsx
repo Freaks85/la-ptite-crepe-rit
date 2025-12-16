@@ -72,7 +72,7 @@ const About = () => {
               des <strong className="text-wood-dark">galettes et crêpes préparées à la demande</strong>,
               avec des produits soigneusement sélectionnés auprès de nos producteurs locaux.
               Farine de sarrasin bio, œufs de plein air, légumes de saison... Ici, le goût
-              authentique de la Bretagne est dans chaque bouchée.
+              authentique est dans chaque bouchée.
             </p>
           </div>
 

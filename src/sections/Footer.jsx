@@ -27,8 +27,8 @@ const Footer = () => {
               />
             </div>
             <p className="text-wood/70 mb-6 leading-relaxed">
-              Crêpes artisanales et galettes bretonnes depuis 2015.
-              Le goût authentique de la Bretagne à Pornic.
+              Crêperie artisanale à Pornic depuis 2015.
+              Galettes au sarrasin et crêpes gourmandes faites maison.
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
