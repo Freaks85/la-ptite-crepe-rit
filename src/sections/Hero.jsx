@@ -28,8 +28,13 @@ const Hero = () => {
   }, [showCallInfo]);
 
   const handleCallClick = (e) => {
-    e.preventDefault();
-    setShowCallInfo(true);
+    // Sur mobile, on laisse le téléphone s'ouvrir directement
+    // Sur desktop, on affiche la popup d'info
+    if (window.innerWidth >= 768) {
+      e.preventDefault();
+      setShowCallInfo(true);
+    }
+    // Sinon on laisse le comportement par défaut (appel téléphonique)
   };
 
   return (
@@ -100,7 +105,7 @@ const Hero = () => {
             {showCallInfo && (
               <div
                 ref={popupRef}
-                className="absolute top-full mt-3 w-72 bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-4 text-left animate-fade-in-up z-[100] cursor-pointer"
+                className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-72 bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-4 text-center animate-fade-in-down z-[100] cursor-pointer"
                 onClick={() => setShowCallInfo(false)}
               >
                 <p className="leading-relaxed">
