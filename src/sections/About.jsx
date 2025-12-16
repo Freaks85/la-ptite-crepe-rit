@@ -102,6 +102,8 @@ const About = () => {
                 src="/salle-pierre.jpg"
                 alt="Salle aux pierres apparentes de La P'tite Crêpe Rit"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -111,6 +113,8 @@ const About = () => {
                 src="/salle-verte.jpg"
                 alt="Salle végétale de La P'tite Crêpe Rit"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 

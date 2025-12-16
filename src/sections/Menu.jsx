@@ -506,6 +506,8 @@ const Menu = () => {
             src="/crepe-sucree.jpg"
             alt="Crêpe gourmande de La P'tite Crêpe Rit"
             className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full shadow-2xl"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 rounded-full ring-4 ring-sage/20 ring-offset-4 ring-offset-[#F5F0E8]" />
         </div>

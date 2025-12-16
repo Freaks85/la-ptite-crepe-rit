@@ -55,6 +55,8 @@ const Gallery = () => {
                 src={photo.src}
                 alt={photo.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {/* Hover overlay */}

@@ -61,6 +61,7 @@ const Hero = () => {
               src="/logo.png"
               alt="La P'tite Crêpe Rit - Pornic"
               className="w-full h-full object-contain"
+              loading="eager"
             />
           </div>
         </div>
