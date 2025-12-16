@@ -1,8 +1,37 @@
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Phone } from 'lucide-react';
 import { restaurantInfo } from '../config/restaurant';
 
 const Hero = () => {
+  const [showCallInfo, setShowCallInfo] = useState(false);
+  const popupRef = useRef(null);
+
+  useEffect(() => {
+    if (!showCallInfo) return;
+    const timer = setTimeout(() => setShowCallInfo(false), 4500);
+    return () => clearTimeout(timer);
+  }, [showCallInfo]);
+
+  // Fermer la popup si on clique en dehors
+  useEffect(() => {
+    if (!showCallInfo) return;
+
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setShowCallInfo(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showCallInfo]);
+
+  const handleCallClick = (e) => {
+    e.preventDefault();
+    setShowCallInfo(true);
+  };
+
   return (
     <section
       id="accueil"
@@ -49,22 +78,45 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-5 justify-center">
-          <a
-            href={`tel:${restaurantInfo.phone.link}`}
-            className="group relative inline-flex items-center justify-center gap-3 text-lg px-10 py-5 overflow-hidden rounded-full font-medium transition-all duration-500 btn-enter stagger-4"
-          >
-            {/* Fond dégradé sage premium */}
-            <div className="absolute inset-0 bg-gradient-to-r from-sage-dark via-sage to-sage-light transition-all duration-500 group-hover:from-sage group-hover:via-sage-light group-hover:to-sage" />
-            {/* Effet brillant au survol */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-            {/* Bordure subtile */}
-            <div className="absolute inset-0 rounded-full ring-1 ring-white/20 ring-inset" />
-            {/* Ombre chaude */}
-            <div className="absolute inset-0 rounded-full shadow-lg shadow-sage/40 group-hover:shadow-xl group-hover:shadow-sage/50 transition-shadow duration-300" />
-            {/* Contenu */}
-            <Phone className="relative z-10 w-5 h-5 text-white" />
-            <span className="relative z-10 text-white font-semibold tracking-wide">Réserver par téléphone</span>
-          </a>
+          <div className="relative inline-flex flex-col items-center">
+            <a
+              href={`tel:${restaurantInfo.phone.link}`}
+              onClick={handleCallClick}
+              className="group relative inline-flex items-center justify-center gap-3 text-lg px-10 py-5 overflow-hidden rounded-full font-medium transition-all duration-500 btn-enter stagger-4"
+            >
+              {/* Fond dégradé sage premium */}
+              <div className="absolute inset-0 bg-gradient-to-r from-sage-dark via-sage to-sage-light transition-all duration-500 group-hover:from-sage group-hover:via-sage-light group-hover:to-sage" />
+              {/* Effet brillant au survol */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              {/* Bordure subtile */}
+              <div className="absolute inset-0 rounded-full ring-1 ring-white/20 ring-inset" />
+              {/* Ombre chaude */}
+              <div className="absolute inset-0 rounded-full shadow-lg shadow-sage/40 group-hover:shadow-xl group-hover:shadow-sage/50 transition-shadow duration-300" />
+              {/* Contenu */}
+              <Phone className="relative z-10 w-5 h-5 text-white" />
+              <span className="relative z-10 text-white font-semibold tracking-wide">Réserver par téléphone</span>
+            </a>
+
+            {showCallInfo && (
+              <div
+                ref={popupRef}
+                className="absolute top-full mt-3 w-72 bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-4 text-left animate-fade-in-up z-[100] cursor-pointer"
+                onClick={() => setShowCallInfo(false)}
+              >
+                <p className="leading-relaxed">
+                  Les réservations par téléphone sont prises de 10h à 12h et de 18h à 19h.
+                </p>
+                <a
+                  href={`tel:${restaurantInfo.phone.link}`}
+                  className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-3 transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>Appeler maintenant</span>
+                </a>
+              </div>
+            )}
+          </div>
 
           <Link
             to="/carte"

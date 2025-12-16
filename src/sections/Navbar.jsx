@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Instagram } from 'lucide-react';
 import { restaurantInfo } from '../config/restaurant';
@@ -6,6 +6,8 @@ import { restaurantInfo } from '../config/restaurant';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showCallInfo, setShowCallInfo] = useState(false);
+  const popupRef = useRef(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -17,6 +19,26 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!showCallInfo) return;
+    const timer = setTimeout(() => setShowCallInfo(false), 4500);
+    return () => clearTimeout(timer);
+  }, [showCallInfo]);
+
+  // Fermer la popup si on clique en dehors
+  useEffect(() => {
+    if (!showCallInfo) return;
+
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setShowCallInfo(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showCallInfo]);
+
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -27,6 +49,11 @@ const Navbar = () => {
     { name: 'La Carte', path: '/carte' },
     { name: 'Chèque Cadeau', path: '/contact' },
   ];
+
+  const handleCallClick = (e) => {
+    e.preventDefault();
+    setShowCallInfo(true);
+  };
 
   const isActive = (path) => location.pathname === path;
 
@@ -94,19 +121,42 @@ const Navbar = () => {
             ))}
 
             {/* Phone Button */}
-            <a
-              href={`tel:${restaurantInfo.phone.link}`}
-              className={`
-                ml-4 flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all duration-300
-                ${showTransparent
-                  ? 'bg-cream-light/90 text-wood-dark hover:bg-cream-light shadow-lg'
-                  : 'bg-sage text-white hover:bg-sage-dark shadow-md hover:shadow-lg'
-                }
-              `}
-            >
-              <Phone size={16} />
-              <span>{restaurantInfo.phone.display}</span>
-            </a>
+            <div className="relative">
+              <a
+                href={`tel:${restaurantInfo.phone.link}`}
+                onClick={handleCallClick}
+                className={`
+                  ml-4 flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all duration-300
+                  ${showTransparent
+                    ? 'bg-cream-light/90 text-wood-dark hover:bg-cream-light shadow-lg'
+                    : 'bg-sage text-white hover:bg-sage-dark shadow-md hover:shadow-lg'
+                  }
+                `}
+              >
+                <Phone size={16} />
+                <span>{restaurantInfo.phone.display}</span>
+              </a>
+
+              {showCallInfo && (
+                <div
+                  ref={popupRef}
+                  className="absolute top-full mt-3 right-0 w-72 bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-2xl shadow-2xl border border-sage/40 p-4 text-left animate-fade-in-up z-50 cursor-pointer"
+                  onClick={() => setShowCallInfo(false)}
+                >
+                  <p className="leading-relaxed">
+                    Les réservations par téléphone sont prises de 10h à 12h et de 18h à 19h.
+                  </p>
+                  <a
+                    href={`tel:${restaurantInfo.phone.link}`}
+                    className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-3 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>Appeler maintenant</span>
+                  </a>
+                </div>
+              )}
+            </div>
 
             {/* Instagram Button */}
             <a
@@ -167,23 +217,45 @@ const Navbar = () => {
             ))}
 
             {/* Phone & Instagram Mobile */}
-            <div className="flex gap-2 mt-4">
-              <a
-                href={`tel:${restaurantInfo.phone.link}`}
-                className="flex-1 flex items-center justify-center gap-2 bg-sage text-white py-3 px-4 rounded-xl font-medium hover:bg-sage-dark transition-colors"
-              >
-                <Phone size={18} />
-                <span>{restaurantInfo.phone.display}</span>
-              </a>
-              <a
-                href={restaurantInfo.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-12 bg-sage text-white rounded-xl hover:bg-sage-dark transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
+            <div className="flex flex-col gap-2 mt-4">
+              <div className="flex gap-2">
+                <a
+                  href={`tel:${restaurantInfo.phone.link}`}
+                  onClick={handleCallClick}
+                  className="flex-1 flex items-center justify-center gap-2 bg-sage text-white py-3 px-4 rounded-xl font-medium hover:bg-sage-dark transition-colors"
+                >
+                  <Phone size={18} />
+                  <span>{restaurantInfo.phone.display}</span>
+                </a>
+                <a
+                  href={restaurantInfo.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-12 bg-sage text-white rounded-xl hover:bg-sage-dark transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} />
+                </a>
+              </div>
+
+              {showCallInfo && (
+                <div
+                  className="bg-wood-dark/95 backdrop-blur-sm text-cream text-sm rounded-xl border border-sage/40 p-4 text-left animate-fade-in-up cursor-pointer"
+                  onClick={() => setShowCallInfo(false)}
+                >
+                  <p className="leading-relaxed">
+                    Les réservations par téléphone sont prises de 10h à 12h et de 18h à 19h.
+                  </p>
+                  <a
+                    href={`tel:${restaurantInfo.phone.link}`}
+                    className="inline-flex items-center gap-2 text-sage-light hover:text-white font-semibold mt-3 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>Appeler maintenant</span>
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
