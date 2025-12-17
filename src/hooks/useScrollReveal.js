@@ -6,6 +6,9 @@ export const useScrollReveal = (options = {}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Détection mobile pour ajuster les seuils
+    const isMobile = window.innerWidth < 768;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -18,8 +21,8 @@ export const useScrollReveal = (options = {}) => {
         }
       },
       {
-        threshold: options.threshold || 0.1,
-        rootMargin: options.rootMargin || '0px 0px -50px 0px',
+        threshold: options.threshold || (isMobile ? 0.05 : 0.1),
+        rootMargin: options.rootMargin || (isMobile ? '0px 0px 100px 0px' : '0px 0px -50px 0px'),
       }
     );
 
@@ -55,6 +58,10 @@ export const useStaggeredReveal = (itemCount, delay = 100) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    // Détection mobile pour ajuster le délai et le threshold
+    const isMobile = window.innerWidth < 768;
+    const adjustedDelay = isMobile ? delay / 2 : delay;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -62,12 +69,15 @@ export const useStaggeredReveal = (itemCount, delay = 100) => {
           for (let i = 0; i < itemCount; i++) {
             setTimeout(() => {
               setVisibleItems(prev => [...prev, i]);
-            }, i * delay);
+            }, i * adjustedDelay);
           }
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+      {
+        threshold: isMobile ? 0.05 : 0.1,
+        rootMargin: isMobile ? '0px 0px 150px 0px' : '0px 0px -30px 0px'
+      }
     );
 
     if (containerRef.current) {

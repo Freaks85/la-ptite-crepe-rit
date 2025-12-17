@@ -1,11 +1,20 @@
-import { Hero, About, Gallery } from '../sections';
+import { lazy, Suspense } from 'react';
+import { Hero } from '../sections';
+
+// Lazy load des sections qui ne sont pas immédiatement visibles
+const About = lazy(() => import('../sections/About'));
+const Gallery = lazy(() => import('../sections/Gallery'));
 
 const HomePage = () => {
   return (
     <>
       <Hero />
-      <About />
-      <Gallery />
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <About />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <Gallery />
+      </Suspense>
     </>
   );
 };

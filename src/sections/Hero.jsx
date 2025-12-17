@@ -37,9 +37,9 @@ const Hero = () => {
       id="accueil"
       className="relative min-h-screen flex items-center justify-center overflow-hidden hero-enter"
     >
-      {/* Background image */}
+      {/* Background image with lazy loading optimization */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
         style={{
           backgroundImage: `url('/hero-bg.jpg')`,
         }}
