@@ -535,7 +535,7 @@ const Menu = () => {
               {/* Section Header avec lignes style PDF */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex-1 h-px bg-sage/40" />
-                <h4 className="font-display text-xl md:text-2xl text-wood-dark text-center px-4 tracking-wide uppercase whitespace-nowrap">
+                <h4 className="font-display text-lg md:text-2xl text-wood-dark text-center px-2 md:px-4 tracking-wide uppercase">
                   {section.name}
                 </h4>
                 <div className="flex-1 h-px bg-sage/40" />
