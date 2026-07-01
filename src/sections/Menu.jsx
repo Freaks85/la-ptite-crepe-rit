@@ -56,8 +56,7 @@ const Menu = () => {
             { name: 'Marine', desc: 'Saumon fumé, crème ciboulette & salade', price: '15,50€' },
             { name: 'Guynemer', desc: 'Andouille de Guémené, pommes de terre, oignons caramélisés & crème de moutarde', price: '14,80€' },
             { name: 'Nantes', desc: 'Emmental, Curé nantais, pommes de terre, poulet tandoori & salade', price: '15,60€' },
-            { name: 'Lucioles', desc: 'Œuf, Pulled Pork, Tomme de Vache « Le Bec Fin » Bio, Sauce Ranch, Oignons frits, Salade', price: '15,90€' },
-            { name: 'Jardin', desc: 'Œuf, poulet nature, sauce César, parmesan, tomates confites', price: '16,00€' },
+            { name: 'Mimosas', desc: 'Melon snacké, burratina, jambon Serrano affiné, crumble menthe-citron, crème de balsamique', price: '17,00€' },
           ],
         },
         {
@@ -66,14 +65,14 @@ const Menu = () => {
             { name: 'Jambon', desc: 'Jambon, Curé nantais, œuf, emmental, sauce hollandaise', price: '14,00€' },
             { name: 'Bacon', desc: 'Bacon, chèvre, œuf, tomates confites, emmental, sauce hollandaise', price: '15,00€' },
             { name: 'Saumon', desc: 'Saumon fumé, chèvre, œuf, emmental, sauce hollandaise', price: '16,00€' },
-            { name: 'Pancakes steak', desc: 'Œuf, cornichons, cheddar, bacon, oignons frits, steak haché, sauce américaine', price: '16,50€' },
           ],
         },
         {
           name: 'Les Salades',
           items: [
-            { name: 'Poissons', desc: 'Salade verte, tomates confites, saumon fumé, chèvre, graines de courge, crème ciboulette', price: '16,50€' },
-            { name: 'Mésanges', desc: 'Salade verte, tomates confites, camembert rôti au miel ou chèvre chaud, Jambon cru de pays, noix', price: '16,50€' },
+            { name: 'Poissons', desc: 'Salade verte, tomates fraîches, saumon fumé, chèvre, graines de courge, crème ciboulette, oignons pickles', price: '16,50€' },
+            { name: 'Mésanges', desc: 'Salade verte, tomates fraîches, oignons pickles, camembert rôti au miel ou chèvre chaud, jambon Serrano affiné, noix', price: '16,50€' },
+            { name: 'Perruche', desc: 'Salade verte, tomates fraîches, oignons pickles, burratina, melon, pignons de pins torréfiés, crème de balsamique', price: '16,50€' },
           ],
         },
       ],
@@ -110,7 +109,14 @@ const Menu = () => {
             { name: 'Lucas', desc: 'Chocolat, confiture d\'oranges amères, flambée au Cointreau', price: '8,20€' },
             { name: 'Babou', desc: 'Brownie noix de pécan, caramel, noix de coco râpée, glace coco', price: '8,50€' },
             { name: 'Ambre', desc: 'Beurre de cacahuète, M&M\'S, chantilly', price: '8,50€' },
-            { name: 'Tiago', desc: 'Crème « façon bueno », feuilletine, chantilly, glace vanille', price: '8,50€' },
+            { name: 'P-A', desc: 'Tartare de fraises fraîches, Coulis de fruits rouges, Menthe fraîche ciselée, Sorbet Citron-Basilic', price: '8,50€' },
+            { name: 'Emma', desc: 'Crème fruit de la passion/vanille, Brisure de palet breton, Glace framboise', price: '11,00€' },
+          ],
+        },
+        {
+          name: 'Supplément',
+          items: [
+            { name: 'Supplément chantilly', price: '2,00€' },
           ],
         },
         {
@@ -230,13 +236,14 @@ const Menu = () => {
         {
           name: 'Sans Alcool',
           items: [
-            { name: 'Virgin mojito ou fraise', price: '6,00€', unit: '25cl' },
+            { name: 'Virgin mojito ou fraise', price: '6,50€', unit: '25cl' },
+            { name: 'Virgin Planteur', price: '6,50€' },
             { name: 'Jus de pomme « sous le pommier »', desc: 'Pommes non traitées', price: '5,00€', unit: '25cl' },
-            { name: 'Jus de fruit', desc: 'Orange, fraise, ananas, pomme', price: '3,40€', unit: '27,5cl' },
-            { name: 'Soft soda', desc: 'Coca cola, Coca cola zéro 33cl — Orangina 25cl — Ice Tea 27,5cl — Schweppes tonic, agrumes 25cl', price: '3,90€' },
+            { name: 'Jus de fruit', desc: 'Orange, fraise, ananas, pomme', price: '3,70€', unit: '27,5cl' },
+            { name: 'Soft soda', desc: 'Coca cola, Coca cola zéro 33cl — Orangina 25cl — Ice Tea 27,5cl — Schweppes tonic, agrumes 25cl', price: '4,00€' },
             { name: 'Limonade', price: '3,00€', unit: '27,5cl' },
-            { name: 'Sirop à l\'eau', desc: 'Menthe, citron, grenadine, pêche, fraise', price: '2,30€', unit: '27,5cl' },
-            { name: 'Diabolo', desc: 'Menthe, citron, grenadine, pêche, fraise', price: '3,30€', unit: '27,5cl' },
+            { name: 'Sirop à l\'eau', desc: 'Menthe, citron, grenadine, pêche, fraise', price: '2,50€', unit: '27,5cl' },
+            { name: 'Diabolo', desc: 'Menthe, citron, grenadine, pêche, fraise', price: '3,50€', unit: '27,5cl' },
             { name: 'Dremmwel', desc: 'Bière sans alcool 0.0%', price: '5,50€', unit: '25cl' },
           ],
         },
@@ -252,12 +259,12 @@ const Menu = () => {
         {
           name: 'Boissons Chaudes',
           items: [
-            { name: 'Café Bio Breton', desc: 'Torréfaction artisanale 100% arabica', price: '1,90€' },
-            { name: 'Allongé', price: '1,90€' },
-            { name: 'Décaféiné', price: '1,90€' },
-            { name: 'Petit crème', price: '2,50€' },
-            { name: 'Grand crème', price: '2,80€' },
-            { name: 'Capuccino', price: '4,50€' },
+            { name: 'Café Bio Breton', desc: 'Torréfaction artisanale 100% arabica', price: '2,10€' },
+            { name: 'Allongé', price: '2,10€' },
+            { name: 'Décaféiné', price: '2,10€' },
+            { name: 'Petit crème', price: '2,70€' },
+            { name: 'Grand crème', price: '3,00€' },
+            { name: 'Capuccino', price: '5,00€' },
             { name: 'Thé Damman', price: '2,80€' },
             { name: 'Infusion Damman', price: '2,80€' },
           ],
@@ -276,15 +283,6 @@ const Menu = () => {
             { name: 'Limoncello', price: '6,00€', unit: '4cl' },
           ],
         },
-        {
-          name: 'Galettes Roulées',
-          description: 'Pour accompagner l\'apéritif — à partager',
-          items: [
-            { name: 'Jambon emmental', price: '8,00€' },
-            { name: 'Saumon chèvre', price: '8,00€' },
-            { name: 'Chèvre miel', price: '8,00€' },
-          ],
-        },
       ],
     },
     glaces: {
@@ -293,7 +291,7 @@ const Menu = () => {
       sections: [
         {
           name: 'Glaces & Sorbets',
-          description: 'Vanille, chocolat, caramel au beurre salé, menthe-chocolat, café, pistache, coco, rhum-raisin, noisette | Sorbets : fraise, framboise, citron, cassis',
+          description: 'Vanille, chocolat, caramel au beurre salé, menthe-chocolat, café, pistache, coco, rhum-raisin, noisette | Sorbets : fraise, framboise, citron, fruit de la passion',
           items: [
             { name: '1 boule', price: '3,00€' },
             { name: '2 boules', price: '5,00€' },
@@ -310,6 +308,12 @@ const Menu = () => {
             { name: 'Dame blanche', desc: '2 boules vanille, chocolat, chantilly, amandes caramélisées', price: '8,00€' },
             { name: 'Banana split', desc: '1 boule fraise, 1 boule vanille, 1 boule chocolat, banane, chocolat, chantilly, amandes caramélisées', price: '8,00€' },
             { name: 'La P\'tite glace rit', desc: '2 boules vanille, 1 boule caramel, caramel, chantilly, amandes caramélisées', price: '8,00€' },
+          ],
+        },
+        {
+          name: 'Supplément',
+          items: [
+            { name: 'Supplément chantilly', price: '2,00€' },
           ],
         },
       ],
