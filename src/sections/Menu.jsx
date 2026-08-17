@@ -109,8 +109,8 @@ const Menu = () => {
             { name: 'Lucas', desc: 'Chocolat, confiture d\'oranges amères, flambée au Cointreau', price: '8,20€' },
             { name: 'Babou', desc: 'Brownie noix de pécan, caramel, noix de coco râpée, glace coco', price: '8,50€' },
             { name: 'Ambre', desc: 'Beurre de cacahuète, M&M\'S, chantilly', price: '8,50€' },
-            { name: 'P-A', desc: 'Tartare de fraises fraîches, Coulis de fruits rouges, Menthe fraîche ciselée, Sorbet Citron-Basilic', price: '8,50€' },
-            { name: 'Emma', desc: 'Crème fruit de la passion/vanille, Brisure de palet breton, Glace framboise', price: '11,00€' },
+            { name: 'Pierre-Antoine', desc: 'Tartare de fraises fraîches, Coulis de fruits rouges, Menthe fraîche ciselée, Sorbet Citron-Basilic', price: '11,00€' },
+            { name: 'Emma', desc: 'Crème fruit de la passion/vanille, Brisure de palet breton, Glace framboise', price: '8,50€' },
           ],
         },
         {
